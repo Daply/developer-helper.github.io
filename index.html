@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <title>Dev-helper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <body>
+    
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+      <h3 class="w3-bar-item">Content</h3>
+      <a href="#" class="w3-bar-item w3-button">Kubernetes commands</a>
+      <a href="#" class="w3-bar-item w3-button">Link 2</a>
+    </div>
+    
+    <!-- Page Content -->
+    <div style="margin-left:25%">
+    
+      <div class="w3-container w3-teal">
+        <h1>Developer helper</h1>
+      </div>
+    
+      <img src="img_car.jpg" alt="Car" style="width:100%">
+    
+      <div class="w3-container">
+        <h2>Most common kubernetes commands</h2>
+        <p>### kubernetes ###</p>
+        <p>
+          Links to kubernetes commands:</br>
+          https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/</br>
+          https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+        </p>
+        
+        <p>
+          ### scale number of replicas ###</br>
+          kubectl scale --replicas=23 deployment/capi
+        </p>
+        
+        <p>
+          ### kubernetes configmap ###</br>
+          kubectl describe configmap</br>
+          kubectl edit configmap</br>
+        </p>
+          
+        <p>
+          ### show memory usage ###</br>
+          kubectl top pods --all-namespaces --containers=true
+        </p>
+        
+        <p>
+          ### apply configs from file in Kubernetes ###</br>
+          kubectl apply -f infra/kubernetes/overlays/pro/app_config.yml
+        </p>
+        
+        <p>
+          ### launching bash ###</br>
+          kubectl exec -it --namespace develop pod-name bash</br>
+          kubectl exec -it --namespace <namespace> <deployment> bash</br>
+          kubectl exec -it --stdin --tty --namespace <namespace> <deployment> /bin/bash</br>
+          kubectl exec -it --stdin --tty --namespace <namespace> <deployment> /bin/bash
+        </p>
+            
+        <p>
+          ### Forwarding port (for example of stackdriver) ###</br>
+          1. kubectl --context <cluster> -n <namespace> get pods</br>
+          2. Copy the pod name of the StackDriver Exporter</br>
+          3. kubectl --context <cluster> -n <namespace> port-forward pods/<pod> 9255:9255</br>
+          4. Open a new tab in your terminal and curl away on /metrics.</br>
+        </p>
+        
+        <p>
+          ### apply configs from file in Kubernetes ###</br>
+          kubectl apply -f infra/kubernetes/overlays/pro/app_config.yml
+        </p>
+        
+        <p>
+          ### Run job ###</br>
+          kubectl create job "manual-actuals-deduplication-job-2" --from=cronjobs/stanley-competitor-data-v1-snapshot-deduplicati-0f42
+        </p>
+        
+        <p>
+          ### Set image for the deployment ###
+          kubectl set image deployment/<deployment> capi=eu.gcr.io/bolcom-stg-capi-a5a/capi-service:3088335-cds-10172-axle-upgrade-try-2-a641dbbd
+          Example: kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1
+        </p>
+      </div>
+    </div>
+        
+  </body>
+</html>
